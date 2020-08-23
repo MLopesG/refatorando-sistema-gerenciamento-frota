@@ -24,22 +24,22 @@ public class Manuntencao {
     @JoinColumn(name = "tipo_manuntencao_id")
     private TipoManuntecao tipoManuntencao;
 
-    @Column(name = "tipo", nullable = false)
+    @Column(name = "tipo", nullable = true)
     private String tipo;
 
-    @Column(name = "proxima_manuntencao", nullable = false)
+    @Column(name = "proxima_manuntencao", nullable = true)
     private String proximaManuntencao;
 
-    @Column(name = "observacao", nullable = false)
+    @Column(name = "observacao", nullable = true)
     private String observacao;
 
-    @Column(name = "quilometragem", nullable = false)
+    @Column(name = "quilometragem", nullable = true)
     private DecimalFormat quilometragem;
 
-    @Column(name = "created", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;                  
 
-    @Column(name = "modified", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {

@@ -16,16 +16,16 @@ public class Estoque {
     @JoinColumn(name="produto_id")
     private Produto produto;
 
-    @Column(name = "total", nullable = false)
+    @Column(name = "total", nullable = true)
     private DecimalFormat total;
 
-    @Column(name = "quantidade", nullable = false)
+    @Column(name = "quantidade", nullable = true)
     private DecimalFormat quantidade;
 
-    @Column(name = "created", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime created;               
 	                 
-    @Column(name = "modified", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
 	public Integer getId() {

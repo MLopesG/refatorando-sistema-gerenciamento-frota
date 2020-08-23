@@ -20,28 +20,28 @@ public class SaidaEntradaVeiculo{
     @JoinColumn(name = "veiculo_substituto_id")
     private Veiculo veiculoSub;
     
-    @Column(name = "saida", nullable = false)
+    @Column(name = "saida", nullable = true)
     private LocalDateTime saida;
 
-    @Column(name = "entrada", nullable = false)
+    @Column(name = "entrada", nullable = true)
     private LocalDateTime entrada;
 
-    @Column(name = "justificativa", nullable = false)
+    @Column(name = "justificativa", nullable = true)
     private String justificativa;
 
-    @Column(name = "km_entrada", nullable = false)
+    @Column(name = "km_entrada", nullable = true)
     private DecimalFormat km_entrada;
 
-    @Column(name = "km_saida", nullable = false)
+    @Column(name = "km_saida", nullable = true)
     private DecimalFormat km_saida;
 
-    @Column(name = "km_diferenca", nullable = false)
+    @Column(name = "km_diferenca", nullable = true)
     private DecimalFormat km_diferenca;    
     
-    @Column(name = "created", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;             
 
-    @Column(name = "modified", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {

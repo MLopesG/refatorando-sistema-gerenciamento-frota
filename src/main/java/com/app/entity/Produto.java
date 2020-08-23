@@ -12,16 +12,16 @@ public class Produto{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "categoria", nullable = false)
+    @Column(name = "categoria", nullable = true)
     private String categoria;
 
-    @Column(name = "valor", nullable = false)
+    @Column(name = "valor", nullable = true)
     private DecimalFormat valor;
 
-    @Column(name = "created", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime created;   
 	                             
-    @Column(name = "modified", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
 	public Integer getId() {

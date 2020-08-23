@@ -17,46 +17,46 @@ public class Cadastro implements Serializable{
     @JoinColumn(name = "cargo_id")
     private Cargo cargo;
 
-    @Column(name = "nome", nullable = false)
+    @Column(name = "nome", nullable = true)
     private String nome;
 
-    @Column(name = "codigo", nullable = false, unique = true)
+    @Column(name = "codigo", nullable = true, unique = true)
     private Integer codigo;
 
-    @Column(name = "cnh", nullable = false)
+    @Column(name = "cnh", nullable = true)
     private String cnh;
 
-    @Column(name = "cpf", nullable = false)
+    @Column(name = "cpf", nullable = true)
     private String cpf;
 
-    @Column(name = "foto_perfil", nullable = false)
+    @Column(name = "foto_perfil", nullable = true)
     private String foto_perfil;
 
-    @Column(name = "endereco", nullable = false)
+    @Column(name = "endereco", nullable = true)
     private String endereco;
 
-    @Column(name = "cep", nullable = false)
+    @Column(name = "cep", nullable = true)
     private String cep;
 
-    @Column(name = "numero", nullable = false)
+    @Column(name = "numero", nullable = true)
     private Integer numero;
 
-    @Column(name = "complemento", nullable = false)
+    @Column(name = "complemento", nullable = true)
     private String complemento;
 
-    @Column(name = "administrador", nullable = false)
+    @Column(name = "administrador", nullable = true)
     private boolean administrador;
 
-    @Column(name = "motorista", nullable = false)
+    @Column(name = "motorista", nullable = true)
     private boolean motorista;
 
-    @Column(name = "senha", nullable = false, length = 20)
+    @Column(name = "senha", nullable = true, length = 20)
     private String senha;
 
-    @Column(name = "created", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;  
 
-    @Column(name = "modified", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {

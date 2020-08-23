@@ -14,40 +14,40 @@ public class Veiculo {
     @JoinColumn(name = "marca_id")
     private Marca marca;
 
-    @Column(name = "placa", nullable = false, unique = true)
+    @Column(name = "placa", nullable = true, unique = true)
     private String placa;
 
-    @Column(name = "ano", nullable = false)
+    @Column(name = "ano", nullable = true)
     private Integer ano;
 
-    @Column(name = "categoria", nullable = false)
+    @Column(name = "categoria", nullable = true)
     private String categoria;
 
-    @Column(name = "combustivel", nullable = false)
+    @Column(name = "combustivel", nullable = true)
     private String combustivel;
 
-    @Column(name = "modelo", nullable = false)
+    @Column(name = "modelo", nullable = true)
     private String modelo;
 
-    @Column(name = "descricao", nullable = false)
+    @Column(name = "descricao", nullable = true)
     private String descricao;
 
-    @Column(name = "setor", nullable = false)
+    @Column(name = "setor", nullable = true)
     private String setor;
 
-    @Column(name = "disponivel", nullable = false)
+    @Column(name = "disponivel", nullable = true)
     private Boolean disponivel;
 
-    @Column(name = "indisponivel", nullable = false)
+    @Column(name = "indisponivel", nullable = true)
     private Boolean indisponivel;
 
-    @Column(name = "manuntencao", nullable = false)
+    @Column(name = "manuntencao", nullable = true)
     private Boolean manuntencao;
 
-    @Column(name = "created", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;             
 
-    @Column(name = "modified", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {
