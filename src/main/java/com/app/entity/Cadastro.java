@@ -38,6 +38,12 @@ public class Cadastro implements Serializable{
     @Column(name = "cep", nullable = true)
     private String cep;
 
+    @Column(name = "estado", nullable = true)
+    private String estado;
+
+    @Column(name = "cidade", nullable = true)
+    private String cidade;
+
     @Column(name = "numero", nullable = true)
     private Integer numero;
 

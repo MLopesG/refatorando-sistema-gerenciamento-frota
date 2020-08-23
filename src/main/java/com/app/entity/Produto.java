@@ -13,7 +13,10 @@ public class Produto{
     private Integer id;
 
     @Column(name = "categoria", nullable = true)
-    private String categoria;
+	private String categoria;
+	
+	@Column(name = "descricao", nullable = true)
+    private String descricao;
 
     @Column(name = "valor", nullable = true)
     private DecimalFormat valor;
@@ -62,5 +65,13 @@ public class Produto{
 
 	public void setModified(LocalDateTime modified) {
 		this.modified = modified;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 }

@@ -13,8 +13,8 @@ public class RetiradaProduto {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name="estoque_id")
-    private Estoque estoque; 
+    @JoinColumn(name="produto_id")
+    private Produto produto; 
 
     @ManyToOne
     @JoinColumn(name="veiculo_id")
@@ -43,12 +43,12 @@ public class RetiradaProduto {
 		this.id = id;
 	}
 
-	public Estoque getEstoque() {
-		return estoque;
+	public Produto getEstoque() {
+		return produto;
 	}
 
-	public void setEstoque(Estoque estoque) {
-		this.estoque = estoque;
+	public void setEstoque(Produto produto) {
+		this.produto = produto;
 	}
 
 	public Veiculo getVeiculo() {

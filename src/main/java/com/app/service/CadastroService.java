@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CadastroService {
-    
+
     CadastroRepository repository;
     TimelineRepository repositoryTimeline;
 
@@ -45,7 +45,6 @@ public class CadastroService {
 
         try{
             Timeline timeline = new Timeline();
-            
             timeline.setDescricao("Cadastro: " + cadastro.getNome());
 
             if(cadastro.getId() != null){
@@ -70,7 +69,7 @@ public class CadastroService {
         return result;
     }
 
-    public Cadastro get(Integer id){
+	public Cadastro get(Integer id){
         return repository.findById(id).get();
     }
 
@@ -89,7 +88,7 @@ public class CadastroService {
 
             Timeline timeline = new Timeline();    
             timeline.setDescricao("Cadastro: " + cadastro.get().getNome());
-            timeline.setTipo("Novo Cadastro");
+            timeline.setTipo("Deletar Cadastro");
             repositoryTimeline.save(timeline);
 
             result.put("success", true);

@@ -21,7 +21,7 @@ public class CadastroController {
     @Autowired
     private CadastroService service;
 
-    @GetMapping("index")
+    @GetMapping("/index")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.unprocessableEntity().body(service.all());
     }

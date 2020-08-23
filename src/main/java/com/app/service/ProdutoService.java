@@ -5,26 +5,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import com.app.entity.Cargo;
+import com.app.entity.Produto;
 import com.app.entity.Timeline;
-import com.app.repository.CargoRepository;
+import com.app.repository.ProdutoRepository;
 import com.app.repository.TimelineRepository;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class CargoService {
+public class ProdutoService {
     
-    CargoRepository repository;
+    ProdutoRepository repository;
     TimelineRepository repositoryTimeline;
 
-    CargoService(CargoRepository cargoRepository, TimelineRepository timelineRepository){
-        this.repository = cargoRepository;
+    ProdutoService(ProdutoRepository produtoRepository, TimelineRepository timelineRepository){
+        this.repository = produtoRepository;
         this.repositoryTimeline = timelineRepository;
     }
 
     public Map<String, Object> all(){
-        List<Cargo> registros = repository.findAll();
+        List<Produto> registros = repository.findAll();
         Map<String, Object> result = new HashMap<>();
         
         try{
@@ -40,27 +40,27 @@ public class CargoService {
         return result;
     }
 
-    public Map<String, Object> save(Cargo cargo){
+    public Map<String, Object> save(Produto produto){
         Map<String, Object> result =  new HashMap<>();
 
         try{
             Timeline timeline = new Timeline();
             
-            timeline.setDescricao("Cargo: " + cargo.getDescricao());
+            timeline.setDescricao("Produto: " + produto.getDescricao());
 
-            if(cargo.getId() != null){
-                timeline.setTipo("Alteração no cargo");
-                result.put("message", "Cargo alterado com sucesso!");
+            if(produto.getId() != null){
+                timeline.setTipo("Alteração no produto");
+                result.put("message", "Produto alterado com sucesso!");
 
             }else{
                 timeline.setTipo("Novo Cadastro");
-                result.put("message", "Cargo criado com sucesso!");
+                result.put("message", "CaProdutorgo criado com sucesso!");
             }
 
             result.put("success", true);
 
             repositoryTimeline.save(timeline);
-            repository.save(cargo);
+            repository.save(produto);
 
         }catch(Exception error){
             result.put("success", false);
@@ -70,7 +70,7 @@ public class CargoService {
         return result;
     }
 
-    public Cargo get(Integer id){
+    public Produto get(Integer id){
         return repository.findById(id).get();
     }
 
@@ -78,22 +78,22 @@ public class CargoService {
         Map<String, Object> result =  new HashMap<>();
 
         try {
-            Optional<Cargo> cargo = repository.findById(id);
+            Optional<Produto> produto = repository.findById(id);
 
-            if(!cargo.isPresent()){
+            if(!produto.isPresent()){
                 result.put("success", false);
-                result.put("message", "Nenhum cargo foi encontrado com essa identificação!");
+                result.put("message", "Nenhum produto foi encontrado com essa identificação!");
 
                 return result;
             }
 
             Timeline timeline = new Timeline();    
-            timeline.setDescricao("Cargo: " + cargo.get().getDescricao());
-            timeline.setTipo("Deletar Cargo");
+            timeline.setDescricao("Produto: " + produto.get().getDescricao());
+            timeline.setTipo("Deletar Produto");
             repositoryTimeline.save(timeline);
 
             result.put("success", true);
-            result.put("message", "Cargo excluido com sucesso!");
+            result.put("message", "Produto excluido com sucesso!");
 
             repository.deleteById(id);
 
