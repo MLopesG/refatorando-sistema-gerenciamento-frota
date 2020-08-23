@@ -1,4 +1,4 @@
-package com.app.services;
+package com.app.service;
 
 import java.util.List;
 
@@ -8,6 +8,9 @@ import com.app.entity.Timeline;
 import com.app.repository.TimelineRepository;
 
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -19,8 +22,21 @@ public class TimelineService {
         this.repository = timelineRepository;
     }
 
-    public List<Timeline> all(){
-        return repository.findAll();
+    public Map<String, Object> all(){
+        List<Timeline> registros = repository.findAll();
+        Map<String, Object> result = new HashMap<>();
+        
+        try{
+            result.put("data", registros);
+            result.put("success", true);
+            result.put("message", "");
+        }
+        catch(Exception error){
+            result.put("success", false);
+            result.put("message", error.getMessage());
+        }
+
+        return result;
     }
 
     public void save(Timeline timeline){

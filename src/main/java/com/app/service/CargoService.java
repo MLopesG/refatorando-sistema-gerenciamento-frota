@@ -1,4 +1,4 @@
-package com.app.services;
+package com.app.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,8 +23,21 @@ public class CargoService {
         this.repositoryTimeline = timelineRepository;
     }
 
-    public List<Cargo> all(){
-        return repository.findAll();
+    public Map<String, Object> all(){
+        List<Cargo> registros = repository.findAll();
+        Map<String, Object> result = new HashMap<>();
+        
+        try{
+            result.put("data", registros);
+            result.put("success", true);
+            result.put("message", "");
+        }
+        catch(Exception error){
+            result.put("success", false);
+            result.put("message", error.getMessage());
+        }
+
+        return result;
     }
 
     public Map<String, Object> save(Cargo cargo){

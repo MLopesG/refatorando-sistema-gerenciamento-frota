@@ -1,7 +1,7 @@
 package com.app.controller;
 
-import com.app.entity.Cargo;
-import com.app.service.CargoService;
+import com.app.entity.Cadastro;
+import com.app.service.CadastroService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/cargos")
-public class CargoController {
+@RequestMapping("/cadastros")
+public class CadastroController {
     
     @Autowired
-    private CargoService service;
+    private CadastroService service;
 
     @GetMapping("index")
     public ResponseEntity<?> getAll(){
@@ -27,17 +27,17 @@ public class CargoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody Cargo cargo) {
-        return ResponseEntity.unprocessableEntity().body(service.save(cargo));
+    public ResponseEntity<?> save(@RequestBody Cadastro cadastro) {
+        return ResponseEntity.unprocessableEntity().body(service.save(cadastro));
     }
 
     @PostMapping("/edit/{id}")
-    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @RequestBody Cargo cargo)
+    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @RequestBody Cadastro cadastro)
     {   
-        Cargo cargoBody = cargo;
-        cargoBody.setId(id);
+        Cadastro CadastroBody = cadastro;
+        CadastroBody.setId(id);
 
-        return ResponseEntity.unprocessableEntity().body(service.save(cargoBody));
+        return ResponseEntity.unprocessableEntity().body(service.save(CadastroBody));
     }
 
     @PostMapping("/delete/{id}")
