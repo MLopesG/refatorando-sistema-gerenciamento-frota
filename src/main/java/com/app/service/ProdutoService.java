@@ -51,7 +51,6 @@ public class ProdutoService {
             if(produto.getId() != null){
                 timeline.setTipo("Alteração no produto");
                 result.put("message", "Produto alterado com sucesso!");
-
             }else{
                 timeline.setTipo("Novo Cadastro");
                 result.put("message", "CaProdutorgo criado com sucesso!");

@@ -14,6 +14,9 @@ public class Produto{
 
     @Column(name = "categoria", nullable = true)
 	private String categoria;
+
+	@Column(name = "quantidade_restante", nullable = true)
+	private Integer quantidade_restante;
 	
 	@Column(name = "descricao", nullable = true)
     private String descricao;
@@ -33,6 +36,14 @@ public class Produto{
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getQuantidade_restante() {
+		return this.quantidade_restante;
+	}
+
+	public void setQuantidade_restante(Integer quantidade_restante) {
+		this.quantidade_restante = quantidade_restante;
 	}
 
 	public String getCategoria() {
