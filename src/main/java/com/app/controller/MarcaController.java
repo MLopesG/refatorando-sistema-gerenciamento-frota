@@ -21,7 +21,7 @@ public class MarcaController {
     @Autowired
     MarcaService service;
 
-    @GetMapping("/index")
+    @GetMapping("")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.unprocessableEntity().body(service.all());
     }

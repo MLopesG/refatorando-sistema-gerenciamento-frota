@@ -21,7 +21,7 @@ public class RetiradaProdutoController {
     @Autowired
     private RetiradaProdutoService service;
 
-    @GetMapping("/index")
+    @GetMapping("")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.unprocessableEntity().body(service.all());
     }

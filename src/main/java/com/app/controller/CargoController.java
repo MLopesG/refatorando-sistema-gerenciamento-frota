@@ -21,7 +21,7 @@ public class CargoController {
     @Autowired
     private CargoService service;
 
-    @GetMapping("/index")
+    @GetMapping("")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.unprocessableEntity().body(service.all());
     }

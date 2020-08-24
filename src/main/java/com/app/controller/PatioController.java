@@ -21,7 +21,7 @@ public class PatioController {
     @Autowired
     PatioService service;
 
-    @GetMapping("/index")
+    @GetMapping("")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.unprocessableEntity().body(service.all());
     }

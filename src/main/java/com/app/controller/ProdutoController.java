@@ -21,7 +21,7 @@ public class ProdutoController {
     @Autowired
     private ProdutoService service;
 
-    @GetMapping("/index")
+    @GetMapping("")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.unprocessableEntity().body(service.all());
     }
