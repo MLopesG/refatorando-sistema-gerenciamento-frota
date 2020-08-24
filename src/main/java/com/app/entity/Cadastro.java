@@ -56,6 +56,9 @@ public class Cadastro implements Serializable{
     @Column(name = "motorista", nullable = true)
     private boolean motorista;
 
+    @Column(name = "ativo", nullable = true)
+    private boolean ativo;
+
     @Column(name = "senha", nullable = true, length = 20)
     private String senha;
 
@@ -183,6 +186,18 @@ public class Cadastro implements Serializable{
 
     public void setCreated(LocalDateTime created) {
         this.created = created;
+    }
+
+    public boolean isAtivo() {
+        return this.ativo;
+    }
+
+    public boolean getAtivo() {
+        return this.ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
     public LocalDateTime getModified() {

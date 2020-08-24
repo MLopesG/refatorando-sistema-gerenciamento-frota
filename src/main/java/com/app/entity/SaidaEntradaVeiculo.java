@@ -1,6 +1,6 @@
 package com.app.entity;
 
-import java.text.DecimalFormat;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
@@ -30,13 +30,13 @@ public class SaidaEntradaVeiculo{
     private String justificativa;
 
     @Column(name = "km_entrada", nullable = true)
-    private DecimalFormat km_entrada;
+    private Float km_entrada;
 
     @Column(name = "km_saida", nullable = true)
-    private DecimalFormat km_saida;
+    private Float km_saida;
 
     @Column(name = "km_diferenca", nullable = true)
-    private DecimalFormat km_diferenca;    
+    private Float km_diferenca;    
     
     @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;             
@@ -92,27 +92,27 @@ public class SaidaEntradaVeiculo{
         this.justificativa = justificativa;
     }
 
-    public DecimalFormat getKm_entrada() {
+    public Float getKm_entrada() {
         return this.km_entrada;
     }
 
-    public void setKm_entrada(DecimalFormat km_entrada) {
+    public void setKm_entrada(Float km_entrada) {
         this.km_entrada = km_entrada;
     }
 
-    public DecimalFormat getKm_saida() {
+    public Float getKm_saida() {
         return this.km_saida;
     }
 
-    public void setKm_saida(DecimalFormat km_saida) {
+    public void setKm_saida(Float km_saida) {
         this.km_saida = km_saida;
     }
 
-    public DecimalFormat getKm_diferenca() {
+    public Float getKm_diferenca() {
         return this.km_diferenca;
     }
 
-    public void setKm_diferenca(DecimalFormat km_diferenca) {
+    public void setKm_diferenca(Float km_diferenca) {
         this.km_diferenca = km_diferenca;
     }
 

@@ -49,10 +49,10 @@ public class ProdutoService {
             timeline.setDescricao("Produto: " + produto.getDescricao());
 
             if(produto.getId() != null){
-                timeline.setTipo("Alteração no produto");
+                timeline.setTipo("Alteração");
                 result.put("message", "Produto alterado com sucesso!");
             }else{
-                timeline.setTipo("Novo Cadastro");
+                timeline.setTipo("Novo");
                 result.put("message", "CaProdutorgo criado com sucesso!");
             }
 
@@ -88,7 +88,7 @@ public class ProdutoService {
 
             Timeline timeline = new Timeline();    
             timeline.setDescricao("Produto: " + produto.get().getDescricao());
-            timeline.setTipo("Deletar Produto");
+            timeline.setTipo("Deletar");
             repositoryTimeline.save(timeline);
 
             result.put("success", true);

@@ -48,11 +48,11 @@ public class CadastroService {
             timeline.setDescricao("Cadastro: " + cadastro.getNome());
 
             if(cadastro.getId() != null){
-                timeline.setTipo("Alteração no Cadastro");
+                timeline.setTipo("Alteração");
                 result.put("message", "Cadastro alterada com sucesso!");
 
             }else{
-                timeline.setTipo("Novo Cadastro");
+                timeline.setTipo("Novo");
                 result.put("message", "Cadastro criado com sucesso!");
             }
 
@@ -88,7 +88,7 @@ public class CadastroService {
 
             Timeline timeline = new Timeline();    
             timeline.setDescricao("Cadastro: " + cadastro.get().getNome());
-            timeline.setTipo("Deletar Cadastro");
+            timeline.setTipo("Excluir");
             repositoryTimeline.save(timeline);
 
             result.put("success", true);

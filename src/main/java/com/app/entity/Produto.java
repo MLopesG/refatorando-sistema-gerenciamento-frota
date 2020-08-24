@@ -1,6 +1,6 @@
 package com.app.entity;
 
-import java.text.DecimalFormat;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
@@ -16,13 +16,13 @@ public class Produto{
 	private String categoria;
 
 	@Column(name = "quantidade_restante", nullable = true)
-	private Integer quantidade_restante;
+	private Integer quantidadeRestante;
 	
 	@Column(name = "descricao", nullable = true)
     private String descricao;
 
     @Column(name = "valor", nullable = true)
-    private DecimalFormat valor;
+    private Float valor;
 
     @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime created;   
@@ -38,12 +38,12 @@ public class Produto{
 		this.id = id;
 	}
 
-	public Integer getQuantidade_restante() {
-		return this.quantidade_restante;
+	public Integer getQuantidadeRestante() {
+		return this.quantidadeRestante;
 	}
 
-	public void setQuantidade_restante(Integer quantidade_restante) {
-		this.quantidade_restante = quantidade_restante;
+	public void setQuantidadeRestante(Integer quantidadeRestante) {
+		this.quantidadeRestante = quantidadeRestante;
 	}
 
 	public String getCategoria() {
@@ -54,11 +54,11 @@ public class Produto{
 		this.categoria = categoria;
 	}
 
-	public DecimalFormat getValor() {
+	public Float getValor() {
 		return valor;
 	}
 
-	public void setValor(DecimalFormat valor) {
+	public void setValor(Float valor) {
 		this.valor = valor;
 	}
 

@@ -1,6 +1,5 @@
 package com.app.entity;
 
-import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
@@ -21,13 +20,24 @@ public class RetiradaProduto {
     private Veiculo veiculo;
 
     @Column(name = "quantidade", nullable = true)
-    private String quantidade;
+    private Integer quantidade;
 
     @Column(name = "total", nullable = true)
-    private DecimalFormat total;
+    private Float total;
 
     @Column(name="observacao", nullable = true)
-    private String observacao;
+	private String observacao;
+	
+	@Column(name="status", nullable = true)
+    private String status;
+
+	public Produto getProduto() {
+		return this.produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
 
     @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;              
@@ -59,19 +69,19 @@ public class RetiradaProduto {
 		this.veiculo = veiculo;
 	}
 
-	public String getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(String quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public DecimalFormat getTotal() {
+	public Float getTotal() {
 		return total;
 	}
 
-	public void setTotal(DecimalFormat total) {
+	public void setTotal(Float total) {
 		this.total = total;
 	}
 
@@ -97,5 +107,17 @@ public class RetiradaProduto {
 
 	public void setModified(LocalDateTime modified) {
 		this.modified = modified;
+	}
+
+	public String isStatus() {
+		return this.status;
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

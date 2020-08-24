@@ -49,11 +49,11 @@ public class CargoService {
             timeline.setDescricao("Cargo: " + cargo.getDescricao());
 
             if(cargo.getId() != null){
-                timeline.setTipo("Alteração no cargo");
+                timeline.setTipo("Alteração");
                 result.put("message", "Cargo alterado com sucesso!");
 
             }else{
-                timeline.setTipo("Novo Cadastro");
+                timeline.setTipo("Novo");
                 result.put("message", "Cargo criado com sucesso!");
             }
 
@@ -89,7 +89,7 @@ public class CargoService {
 
             Timeline timeline = new Timeline();    
             timeline.setDescricao("Cargo: " + cargo.get().getDescricao());
-            timeline.setTipo("Deletar Cargo");
+            timeline.setTipo("Deletar");
             repositoryTimeline.save(timeline);
 
             result.put("success", true);

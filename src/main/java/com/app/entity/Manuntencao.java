@@ -1,6 +1,6 @@
 package com.app.entity;
 
-import java.text.DecimalFormat;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
@@ -34,7 +34,7 @@ public class Manuntencao {
     private String observacao;
 
     @Column(name = "quilometragem", nullable = true)
-    private DecimalFormat quilometragem;
+    private Float quilometragem;
 
     @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;                  
@@ -90,11 +90,11 @@ public class Manuntencao {
         this.observacao = observacao;
     }
 
-    public DecimalFormat getQuilometragem() {
+    public Float getQuilometragem() {
         return quilometragem;
     }
 
-    public void setQuilometragem(DecimalFormat quilometragem) {
+    public void setQuilometragem(Float quilometragem) {
         this.quilometragem = quilometragem;
     }
 
