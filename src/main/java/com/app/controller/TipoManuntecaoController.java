@@ -23,12 +23,12 @@ public class TipoManuntecaoController {
 
     @GetMapping("")
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.unprocessableEntity().body(service.all());
+        return  ResponseEntity.ok(service.all());
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody TipoManuntecao tipo) {
-        return ResponseEntity.unprocessableEntity().body(service.save(tipo));
+        return ResponseEntity.ok(service.save(tipo));
     }
 
     @PostMapping("/edit/{id}")
@@ -37,12 +37,12 @@ public class TipoManuntecaoController {
         TipoManuntecao tipoBody = tipo;
         tipoBody.setId(id);
 
-        return ResponseEntity.unprocessableEntity().body(service.save(tipoBody));
+        return ResponseEntity.ok(service.save(tipoBody));
     }
 
     @PostMapping("/delete/{id}")
     public ResponseEntity<?> deleteVeiculo(@PathVariable(value = "id")  Integer id){
-        return ResponseEntity.unprocessableEntity().body(service.delete(id));
+        return ResponseEntity.ok(service.delete(id));
     }
 
 }

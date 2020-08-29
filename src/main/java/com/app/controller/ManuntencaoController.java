@@ -23,12 +23,12 @@ public class ManuntencaoController {
 
     @GetMapping("")
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.unprocessableEntity().body(service.all());
+        return  ResponseEntity.ok(service.all());
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody Manuntencao manuntencao) {
-        return ResponseEntity.unprocessableEntity().body(service.save(manuntencao));
+        return ResponseEntity.ok(service.save(manuntencao));
     }
 
     @PostMapping("/edit/{id}")
@@ -37,12 +37,12 @@ public class ManuntencaoController {
         Manuntencao manuntencaoBody = manuntencao;
         manuntencaoBody.setId(id);
 
-        return ResponseEntity.unprocessableEntity().body(service.save(manuntencaoBody));
+        return ResponseEntity.ok(service.save(manuntencaoBody));
     }
 
     @PostMapping("/delete/{id}")
     public ResponseEntity<?> deleteVeiculo(@PathVariable(value = "id")  Integer id){
-        return ResponseEntity.unprocessableEntity().body(service.delete(id));
+        return ResponseEntity.ok(service.delete(id));
     }
 
 }

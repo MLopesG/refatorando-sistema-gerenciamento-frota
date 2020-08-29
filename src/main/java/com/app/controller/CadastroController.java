@@ -23,12 +23,12 @@ public class CadastroController {
 
     @GetMapping("")
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.unprocessableEntity().body(service.all());
+        return  ResponseEntity.ok(service.all());
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody Cadastro cadastro) {
-        return ResponseEntity.unprocessableEntity().body(service.save(cadastro));
+        return ResponseEntity.ok(service.save(cadastro));
     }
 
     @PostMapping("/edit/{id}")
@@ -37,11 +37,11 @@ public class CadastroController {
         Cadastro CadastroBody = cadastro;
         CadastroBody.setId(id);
 
-        return ResponseEntity.unprocessableEntity().body(service.save(CadastroBody));
+        return ResponseEntity.ok(service.save(CadastroBody));
     }
 
     @PostMapping("/delete/{id}")
     public ResponseEntity<?> deleteVeiculo(@PathVariable(value = "id")  Integer id){
-        return ResponseEntity.unprocessableEntity().body(service.delete(id));
+        return ResponseEntity.ok(service.delete(id));
     }
 }

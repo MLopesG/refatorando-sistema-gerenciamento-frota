@@ -23,12 +23,12 @@ public class PatioController {
 
     @GetMapping("")
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.unprocessableEntity().body(service.all());
+        return  ResponseEntity.ok(service.all());
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody Patio patio) {
-        return ResponseEntity.unprocessableEntity().body(service.save(patio));
+        return ResponseEntity.ok(service.save(patio));
     }
 
     @PostMapping("/edit/{id}")
@@ -37,11 +37,11 @@ public class PatioController {
         Patio patioBody = patio;
         patioBody.setId(id);
 
-        return ResponseEntity.unprocessableEntity().body(service.save(patioBody));
+        return ResponseEntity.ok(service.save(patioBody));
     }
 
     @PostMapping("/delete/{id}")
     public ResponseEntity<?> deleteVeiculo(@PathVariable(value = "id")  Integer id){
-        return ResponseEntity.unprocessableEntity().body(service.delete(id));
+        return ResponseEntity.ok(service.delete(id));
     }
 }

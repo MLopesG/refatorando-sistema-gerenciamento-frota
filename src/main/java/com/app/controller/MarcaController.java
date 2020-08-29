@@ -23,12 +23,12 @@ public class MarcaController {
 
     @GetMapping("")
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.unprocessableEntity().body(service.all());
+        return  ResponseEntity.ok(service.all());
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody Marca marca) {
-        return ResponseEntity.unprocessableEntity().body(service.save(marca));
+        return ResponseEntity.ok(service.save(marca));
     }
 
     @PostMapping("/edit/{id}")
@@ -37,12 +37,12 @@ public class MarcaController {
         Marca marcaBody = marca;
         marcaBody.setId(id);
 
-        return ResponseEntity.unprocessableEntity().body(service.save(marcaBody));
+        return ResponseEntity.ok(service.save(marcaBody));
     }
 
     @PostMapping("/delete/{id}")
     public ResponseEntity<?> deleteVeiculo(@PathVariable(value = "id")  Integer id){
-        return ResponseEntity.unprocessableEntity().body(service.delete(id));
+        return ResponseEntity.ok(service.delete(id));
     }
 
 }

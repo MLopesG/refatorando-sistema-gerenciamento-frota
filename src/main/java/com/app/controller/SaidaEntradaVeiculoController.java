@@ -23,12 +23,12 @@ public class SaidaEntradaVeiculoController {
 
     @GetMapping("")
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.unprocessableEntity().body(service.all());
+        return  ResponseEntity.ok(service.all());
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody SaidaEntradaVeiculo saidaEntrada) {
-        return ResponseEntity.unprocessableEntity().body(service.save(saidaEntrada));
+        return ResponseEntity.ok(service.save(saidaEntrada));
     }
 
     @PostMapping("/edit/{id}")
@@ -37,12 +37,12 @@ public class SaidaEntradaVeiculoController {
         SaidaEntradaVeiculo saidaEntradaBody = saidaEntrada;
         saidaEntradaBody.setId(id);
 
-        return ResponseEntity.unprocessableEntity().body(service.save(saidaEntradaBody));
+        return ResponseEntity.ok(service.save(saidaEntradaBody));
     }
 
     @PostMapping("/delete/{id}")
     public ResponseEntity<?> deleteVeiculo(@PathVariable(value = "id")  Integer id){
-        return ResponseEntity.unprocessableEntity().body(service.delete(id));
+        return ResponseEntity.ok(service.delete(id));
     }
 
 }

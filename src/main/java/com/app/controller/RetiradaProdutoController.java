@@ -23,12 +23,12 @@ public class RetiradaProdutoController {
 
     @GetMapping("")
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.unprocessableEntity().body(service.all());
+        return  ResponseEntity.ok(service.all());
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody RetiradaProduto produto) {
-        return ResponseEntity.unprocessableEntity().body(service.save(produto));
+        return ResponseEntity.ok(service.save(produto));
     }
 
     @PostMapping("/edit/{id}")
@@ -37,11 +37,11 @@ public class RetiradaProdutoController {
         RetiradaProduto ProdutoBody = produto;
         ProdutoBody.setId(id);
 
-        return ResponseEntity.unprocessableEntity().body(service.save(ProdutoBody));
+        return ResponseEntity.ok(service.save(ProdutoBody));
     }
 
     @PostMapping("/delete/{id}")
     public ResponseEntity<?> deleteVeiculo(@PathVariable(value = "id")  Integer id){
-        return ResponseEntity.unprocessableEntity().body(service.delete(id));
+        return ResponseEntity.ok(service.delete(id));
     }
 }
