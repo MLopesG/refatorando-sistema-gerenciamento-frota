@@ -53,7 +53,7 @@ public class ProdutoService {
                 result.put("message", "Produto alterado com sucesso!");
             }else{
                 timeline.setTipo("Novo");
-                result.put("message", "CaProdutorgo criado com sucesso!");
+                result.put("message", "Produto criado com sucesso!");
             }
 
             result.put("success", true);
