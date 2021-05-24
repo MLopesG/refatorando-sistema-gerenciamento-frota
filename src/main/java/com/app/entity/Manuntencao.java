@@ -4,6 +4,8 @@ package com.app.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "manuntencoes")
@@ -14,32 +16,40 @@ public class Manuntencao {
 
     @ManyToOne
     @JoinColumn(name = "veiculo_id")
+    @NotNull(message = "Campo obrigatório.")
     private Veiculo veiculo;
 
     @ManyToOne
     @JoinColumn(name = "cadastro_id")
+    @NotNull(message = "Campo obrigatório.")
     private Cadastro cadastro;
 
     @ManyToOne
     @JoinColumn(name = "tipo_manuntencao_id")
+    @NotNull(message = "Campo obrigatório.")
     private TipoManuntecao tipoManuntencao;
 
+    @NotNull
+    @Size(min = 2, message = "Campo obrigatório.")
     @Column(name = "tipo", nullable = true)
     private String tipo;
 
+    @NotNull
+    @Size(min = 2, message = "Campo obrigatório.")
     @Column(name = "proxima_manuntencao", nullable = true)
     private String proximaManuntencao;
 
     @Column(name = "observacao", nullable = true)
     private String observacao;
-
+    
+    @NotNull(message = "Campo obrigatório.")
     @Column(name = "quilometragem", nullable = true)
     private Float quilometragem;
 
-    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;                  
 
-    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {

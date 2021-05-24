@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import javax.validation.Valid;
+
 import com.app.entity.Veiculo;
 import com.app.service.VeiculoService;
 
@@ -27,12 +29,12 @@ public class VeiculoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody Veiculo veiculo) {
+    public ResponseEntity<?> save(@Valid @RequestBody Veiculo veiculo) {
         return ResponseEntity.ok(service.save(veiculo));
     }
 
     @PostMapping("/edit/{id}")
-    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @RequestBody Veiculo veiculo)
+    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id,@Valid @RequestBody Veiculo veiculo)
     {   
         Veiculo veiculoBody = veiculo;
         veiculoBody.setId(id);

@@ -29,11 +29,11 @@ public class TipoManuntecaoService {
         
         try{
             result.put("data", registros);
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "");
         }
         catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 
@@ -57,13 +57,13 @@ public class TipoManuntecaoService {
                 result.put("message", "Novo tipo de manuntenção foi criada com sucesso!");
             }
 
-            result.put("success", true);
+            result.put("status", true);
 
             repositoryTimeline.save(timeline);
             repository.save(tipo);
 
         }catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getStackTrace());
         }
         
@@ -81,7 +81,7 @@ public class TipoManuntecaoService {
             Optional<TipoManuntecao> tipo = repository.findById(id);
 
             if(!tipo.isPresent()){
-                result.put("success", false);
+                result.put("status", false);
                 result.put("message", "Nenhum tipo de manunteção foi encontrado com essa identificação!");
 
                 return result;
@@ -92,13 +92,13 @@ public class TipoManuntecaoService {
             timeline.setTipo("Deletar");
             repositoryTimeline.save(timeline);
 
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "Tipo de manuntenção foi excluida com sucesso!");
 
             repository.deleteById(id);
 
         } catch (Exception error) {
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 

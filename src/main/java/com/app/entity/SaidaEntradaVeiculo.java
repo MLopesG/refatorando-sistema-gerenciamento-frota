@@ -4,9 +4,10 @@ package com.app.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="saida_entrada_veiculos")
+@Table(name="saida_entrada_veiculo")
 public class SaidaEntradaVeiculo{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,34 +15,42 @@ public class SaidaEntradaVeiculo{
 
     @ManyToOne
     @JoinColumn(name = "veiculo_id")
+    @NotNull(message = "Campo obrigatório.")
     private Veiculo veiculo;
 
     @ManyToOne
     @JoinColumn(name = "veiculo_substituto_id")
+    @NotNull(message = "Campo obrigatório.")
     private Veiculo veiculoSub;
     
     @Column(name = "saida", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private LocalDateTime saida;
 
     @Column(name = "entrada", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private LocalDateTime entrada;
 
     @Column(name = "justificativa", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private String justificativa;
 
     @Column(name = "km_entrada", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private Float km_entrada;
 
     @Column(name = "km_saida", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private Float km_saida;
 
     @Column(name = "km_diferenca", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private Float km_diferenca;    
     
-    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;             
 
-    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {

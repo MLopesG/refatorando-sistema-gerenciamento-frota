@@ -34,11 +34,11 @@ public class RetiradaProdutoService {
         
         try{
             result.put("data", registros);
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "");
         }
         catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 
@@ -84,10 +84,10 @@ public class RetiradaProdutoService {
             repositoryTimeline.save(timeline);
 
             // Retornar result
-            result.put("success", true);
+            result.put("status", true);
 
         }catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getStackTrace());
         }
         
@@ -107,7 +107,7 @@ public class RetiradaProdutoService {
             RetiradaProduto retiradaProduto = retirada.get();
 
             if(!retirada.isPresent()){
-                result.put("success", false);
+                result.put("status", false);
                 result.put("message", "Nenhuma retirada foi encontrado com essa identificação!");
 
                 return result;
@@ -136,11 +136,11 @@ public class RetiradaProdutoService {
             repositoryTimeline.save(timeline);
 
             // Retornar result
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "Retirada de produto cancelado com sucesso!");
 
         } catch (Exception error) {
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 

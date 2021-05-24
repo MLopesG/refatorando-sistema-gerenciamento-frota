@@ -29,11 +29,11 @@ public class VeiculoService {
         
         try{
             result.put("data", registros);
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "");
         }
         catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 
@@ -57,13 +57,13 @@ public class VeiculoService {
                 result.put("message", "Veiculo criada com sucesso!");
             }
 
-            result.put("success", true);
+            result.put("status", true);
 
             repositoryTimeline.save(timeline);
             repository.save(veiculo);
 
         }catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getStackTrace());
         }
         
@@ -81,7 +81,7 @@ public class VeiculoService {
             Optional<Veiculo> veiculo = repository.findById(id);
 
             if(!veiculo.isPresent()){
-                result.put("success", false);
+                result.put("status", false);
                 result.put("message", "Nenhum veiculo foi encontrado com essa identificação!");
 
                 return result;
@@ -92,13 +92,13 @@ public class VeiculoService {
             timeline.setTipo("Deletar");
             repositoryTimeline.save(timeline);
 
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "Veiculo excluido com sucesso!");
 
             repository.deleteById(id);
 
         } catch (Exception error) {
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 

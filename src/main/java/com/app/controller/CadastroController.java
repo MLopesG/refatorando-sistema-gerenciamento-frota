@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import javax.validation.Valid;
+
 import com.app.entity.Cadastro;
 import com.app.service.CadastroService;
 
@@ -27,12 +29,12 @@ public class CadastroController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody Cadastro cadastro) {
+    public ResponseEntity<?> save(@Valid @RequestBody Cadastro cadastro) {
         return ResponseEntity.ok(service.save(cadastro));
     }
 
     @PostMapping("/edit/{id}")
-    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @RequestBody Cadastro cadastro)
+    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @Valid @RequestBody Cadastro cadastro)
     {   
         Cadastro CadastroBody = cadastro;
         CadastroBody.setId(id);

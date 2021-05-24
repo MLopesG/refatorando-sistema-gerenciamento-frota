@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import javax.validation.Valid;
+
 import com.app.entity.Manuntencao;
 import com.app.service.ManuntencaoService;
 
@@ -27,12 +29,12 @@ public class ManuntencaoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody Manuntencao manuntencao) {
+    public ResponseEntity<?> save(@Valid @RequestBody Manuntencao manuntencao) {
         return ResponseEntity.ok(service.save(manuntencao));
     }
 
     @PostMapping("/edit/{id}")
-    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @RequestBody Manuntencao manuntencao)
+    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @Valid @RequestBody Manuntencao manuntencao)
     {   
         Manuntencao manuntencaoBody = manuntencao;
         manuntencaoBody.setId(id);

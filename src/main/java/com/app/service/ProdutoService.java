@@ -29,11 +29,11 @@ public class ProdutoService {
         
         try{
             result.put("data", registros);
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "");
         }
         catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 
@@ -56,13 +56,13 @@ public class ProdutoService {
                 result.put("message", "Produto criado com sucesso!");
             }
 
-            result.put("success", true);
+            result.put("status", true);
 
             repositoryTimeline.save(timeline);
             repository.save(produto);
 
         }catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getStackTrace());
         }
         
@@ -80,7 +80,7 @@ public class ProdutoService {
             Optional<Produto> produto = repository.findById(id);
 
             if(!produto.isPresent()){
-                result.put("success", false);
+                result.put("status", false);
                 result.put("message", "Nenhum produto foi encontrado com essa identificação!");
 
                 return result;
@@ -91,13 +91,13 @@ public class ProdutoService {
             timeline.setTipo("Deletar");
             repositoryTimeline.save(timeline);
 
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "Produto excluido com sucesso!");
 
             repository.deleteById(id);
 
         } catch (Exception error) {
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 

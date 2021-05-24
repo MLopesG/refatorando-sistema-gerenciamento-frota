@@ -3,24 +3,26 @@ package com.app.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "marcas")
+@Table(name = "marca")
 public class Marca {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
+		
+	@NotNull(message = "Campo obrigatório.")
 	@Column(name = "descricao", nullable = true)
 	private String descricao;
 
 	@Column(name = "site", nullable = true, unique = true)
 	private String site;
 
-	@Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime created;
 
-	@Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime modified;
 
 	public LocalDateTime getCreated() {

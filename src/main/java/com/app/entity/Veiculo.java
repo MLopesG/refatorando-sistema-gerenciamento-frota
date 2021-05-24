@@ -2,9 +2,10 @@ package com.app.entity;
 
 import java.time.LocalDateTime;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "veiculos")
+@Table(name = "veiculo")
 public class Veiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,39 +16,46 @@ public class Veiculo {
     private Marca marca;
 
     @Column(name = "placa", nullable = true, unique = true)
+    @NotNull(message = "Campo obrigatório.")
     private String placa;
 
     @Column(name = "ano", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private Integer ano;
 
     @Column(name = "categoria", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private String categoria;
 
     @Column(name = "combustivel", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private String combustivel;
 
     @Column(name = "modelo", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private String modelo;
 
     @Column(name = "descricao", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private String descricao;
 
     @Column(name = "setor", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private String setor;
 
-    @Column(name = "disponivel", nullable = true)
+    @Column(name = "disponivel", nullable = true, columnDefinition="BOOLEAN DEFAULT false")
     private Boolean disponivel;
 
-    @Column(name = "indisponivel", nullable = true)
+    @Column(name = "indisponivel", nullable = true, columnDefinition="BOOLEAN DEFAULT false")
     private Boolean indisponivel;
 
-    @Column(name = "manuntencao", nullable = true)
+    @Column(name = "manuntencao", nullable = true, columnDefinition="BOOLEAN DEFAULT false")
     private Boolean manuntencao;
 
-    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;             
 
-    @Column(name = "modified", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {

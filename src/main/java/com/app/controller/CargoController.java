@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import javax.validation.Valid;
+
 import com.app.entity.Cargo;
 import com.app.service.CargoService;
 
@@ -27,12 +29,12 @@ public class CargoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody Cargo cargo) {
+    public ResponseEntity<?> save(@Valid @RequestBody Cargo cargo) {
         return ResponseEntity.ok(service.save(cargo));
     }
 
     @PostMapping("/edit/{id}")
-    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @RequestBody Cargo cargo)
+    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @Valid @RequestBody Cargo cargo)
     {   
         Cargo cargoBody = cargo;
         cargoBody.setId(id);

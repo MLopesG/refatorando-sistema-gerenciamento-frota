@@ -29,11 +29,11 @@ public class CadastroService {
         
         try{
             result.put("data", registros);
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "");
         }
         catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 
@@ -56,13 +56,13 @@ public class CadastroService {
                 result.put("message", "Cadastro criado com sucesso!");
             }
 
-            result.put("success", true);
+            result.put("status", true);
 
             repositoryTimeline.save(timeline);
             repository.save(cadastro);
 
         }catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getStackTrace());
         }
         
@@ -80,7 +80,7 @@ public class CadastroService {
             Optional<Cadastro> cadastro = repository.findById(id);
 
             if(!cadastro.isPresent()){
-                result.put("success", false);
+                result.put("status", false);
                 result.put("message", "Nenhum cadastro foi encontrado com essa identificação!");
 
                 return result;
@@ -91,13 +91,13 @@ public class CadastroService {
             timeline.setTipo("Excluir");
             repositoryTimeline.save(timeline);
 
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "Cadastro excluido com sucesso!");
 
             repository.deleteById(id);
 
         } catch (Exception error) {
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 

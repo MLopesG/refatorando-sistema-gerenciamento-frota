@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import javax.validation.Valid;
+
 import com.app.entity.TipoManuntecao;
 import com.app.service.TipoManuntecaoService;
 
@@ -27,12 +29,12 @@ public class TipoManuntecaoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody TipoManuntecao tipo) {
+    public ResponseEntity<?> save(@Valid @RequestBody TipoManuntecao tipo) {
         return ResponseEntity.ok(service.save(tipo));
     }
 
     @PostMapping("/edit/{id}")
-    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @RequestBody TipoManuntecao tipo)
+    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id,@Valid @RequestBody TipoManuntecao tipo)
     {   
         TipoManuntecao tipoBody = tipo;
         tipoBody.setId(id);

@@ -3,6 +3,7 @@ package com.app.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "patio")
@@ -13,15 +14,17 @@ public class Patio {
 
     @ManyToOne
     @JoinColumn(name = "veiculo_id")
+    @NotNull(message = "Campo obrigatório.")
     private Veiculo veiculo;
 
+    @NotNull(message = "Campo obrigatório.")
     @Column(name = "justificativa", nullable = true)
     private String justificativa;
 
-    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;          
 
-    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {

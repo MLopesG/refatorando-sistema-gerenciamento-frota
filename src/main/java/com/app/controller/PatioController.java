@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import javax.validation.Valid;
+
 import com.app.entity.Patio;
 import com.app.service.PatioService;
 
@@ -27,12 +29,12 @@ public class PatioController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody Patio patio) {
+    public ResponseEntity<?> save(@Valid @RequestBody Patio patio) {
         return ResponseEntity.ok(service.save(patio));
     }
 
     @PostMapping("/edit/{id}")
-    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @RequestBody Patio patio)
+    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @Valid @RequestBody Patio patio)
     {   
         Patio patioBody = patio;
         patioBody.setId(id);

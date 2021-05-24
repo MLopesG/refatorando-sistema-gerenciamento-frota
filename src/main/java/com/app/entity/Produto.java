@@ -4,30 +4,35 @@ package com.app.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="produtos")
+@Table(name="produto")
 public class Produto{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+	@NotNull(message = "Campo obrigatório.")
     @Column(name = "categoria", nullable = true)
 	private String categoria;
 
+	@NotNull(message = "Campo obrigatório.")
 	@Column(name = "quantidade_restante", nullable = true)
 	private Integer quantidadeRestante;
 	
+	@NotNull(message = "Campo obrigatório.")
 	@Column(name = "descricao", nullable = true)
     private String descricao;
-
+	
+	@NotNull(message = "Campo obrigatório.")
     @Column(name = "valor", nullable = true)
     private Float valor;
 
-    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime created;   
 	                             
-    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
 	public Integer getId() {

@@ -29,11 +29,11 @@ public class PatioService {
         
         try{
             result.put("data", registros);
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "");
         }
         catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 
@@ -57,13 +57,13 @@ public class PatioService {
                 result.put("message", "Registro de patio registrado com sucesso!");
             }
 
-            result.put("success", true);
+            result.put("status", true);
 
             repositoryTimeline.save(timeline);
             repository.save(patio);
 
         }catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getStackTrace());
         }
         
@@ -81,7 +81,7 @@ public class PatioService {
             Optional<Patio> patio = repository.findById(id);
 
             if(!patio.isPresent()){
-                result.put("success", false);
+                result.put("status", false);
                 result.put("message", "Nenhum resgistro de patio foi encontrado com essa identificação!");
 
                 return result;
@@ -92,13 +92,13 @@ public class PatioService {
             timeline.setTipo("Deletar");
             repositoryTimeline.save(timeline);
 
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "Registro de patio excluido com sucesso!");
 
             repository.deleteById(id);
 
         } catch (Exception error) {
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 

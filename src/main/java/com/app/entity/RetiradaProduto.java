@@ -3,9 +3,10 @@ package com.app.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="retiradas_produtos")
+@Table(name="retiradas_produto")
 public class RetiradaProduto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,22 +14,28 @@ public class RetiradaProduto {
 
     @ManyToOne
     @JoinColumn(name="produto_id")
+	@NotNull(message = "Campo obrigatório.")
     private Produto produto; 
 
     @ManyToOne
     @JoinColumn(name="veiculo_id")
+	@NotNull(message = "Campo obrigatório.")
     private Veiculo veiculo;
 
     @Column(name = "quantidade", nullable = true)
+	@NotNull(message = "Campo obrigatório.")
     private Integer quantidade;
 
     @Column(name = "total", nullable = true)
+	@NotNull(message = "Campo obrigatório.")
     private Float total;
 
     @Column(name="observacao", nullable = true)
+	@NotNull(message = "Campo obrigatório.")
 	private String observacao;
 	
 	@Column(name="status", nullable = true)
+	@NotNull(message = "Campo obrigatório.")
     private String status;
 
 	public Produto getProduto() {
@@ -39,10 +46,10 @@ public class RetiradaProduto {
 		this.produto = produto;
 	}
 
-    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;              
                       
-    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
 	public Integer getId() {

@@ -3,6 +3,7 @@ package com.app.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tipo_manuntecao")
@@ -12,18 +13,21 @@ public class TipoManuntecao {
     private Integer id;
 
     @Column(name = "descricao", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private String descricao;
 
     @Column(name = "intervalo_manuntencao", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private Integer intervaloManuntencao;
 
     @Column(name = "tipo_intervalo", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
     private String tipo_intervalo;
 
-    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;   
 
-    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {

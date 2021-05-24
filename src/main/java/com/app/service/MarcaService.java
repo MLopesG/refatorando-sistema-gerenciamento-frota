@@ -29,11 +29,11 @@ public class MarcaService {
         
         try{
             result.put("data", registros);
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "");
         }
         catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 
@@ -57,13 +57,13 @@ public class MarcaService {
                 result.put("message", "Marca criada com sucesso!");
             }
 
-            result.put("success", true);
+            result.put("status", true);
 
             repositoryTimeline.save(timeline);
             repository.save(marca);
 
         }catch(Exception error){
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getStackTrace());
         }
         
@@ -81,7 +81,7 @@ public class MarcaService {
             Optional<Marca> marca = repository.findById(id);
 
             if(!marca.isPresent()){
-                result.put("success", false);
+                result.put("status", false);
                 result.put("message", "Nenhuma marca foi encontrada com essa identificação!");
 
                 return result;
@@ -92,13 +92,13 @@ public class MarcaService {
             timeline.setTipo("Deletar");
             repositoryTimeline.save(timeline);
 
-            result.put("success", true);
+            result.put("status", true);
             result.put("message", "Marca excluida com sucesso!");
 
             repository.deleteById(id);
 
         } catch (Exception error) {
-            result.put("success", false);
+            result.put("status", false);
             result.put("message", error.getMessage());
         }
 

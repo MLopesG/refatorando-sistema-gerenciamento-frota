@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import javax.validation.Valid;
+
 import com.app.entity.RetiradaProduto;
 import com.app.service.RetiradaProdutoService;
 
@@ -27,12 +29,12 @@ public class RetiradaProdutoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody RetiradaProduto produto) {
+    public ResponseEntity<?> save(@Valid @RequestBody RetiradaProduto produto) {
         return ResponseEntity.ok(service.save(produto));
     }
 
     @PostMapping("/edit/{id}")
-    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @RequestBody RetiradaProduto produto)
+    public ResponseEntity<?> edit(@PathVariable(value = "id")  Integer id, @Valid @RequestBody RetiradaProduto produto)
     {   
         RetiradaProduto ProdutoBody = produto;
         ProdutoBody.setId(id);

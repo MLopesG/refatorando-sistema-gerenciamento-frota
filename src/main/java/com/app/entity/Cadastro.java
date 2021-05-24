@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "cadastros")
+@Table(name = "cadastro")
 public class Cadastro implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,57 +17,66 @@ public class Cadastro implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "cargo_id")
+    @NotNull(message = "Campo obrigatório.")
     private Cargo cargo;
 
+    @NotNull
+    @Size(min = 2, message = "Campo obrigatório.")
     @Column(name = "nome", nullable = true)
     private String nome;
 
-    @Column(name = "codigo", nullable = true, unique = true)
+    @NotNull(message = "Campo obrigatório.")
     private Integer codigo;
 
+    @NotNull
+    @Size(min = 2, message = "Campo obrigatório.")
     @Column(name = "cnh", nullable = true)
     private String cnh;
 
-    @Column(name = "cpf", nullable = true)
+    @NotNull
+    @Size(min = 2, message = "Campo obrigatório.")
     private String cpf;
 
-    @Column(name = "foto_perfil", nullable = true)
-    private String foto_perfil;
-
+    @NotNull(message = "Campo obrigatório.")
     @Column(name = "endereco", nullable = true)
     private String endereco;
-
+    
     @Column(name = "cep", nullable = true)
     private String cep;
 
+    @NotNull(message = "Campo obrigatório.")
     @Column(name = "estado", nullable = true)
     private String estado;
 
+    @NotNull(message = "Campo obrigatório.")
     @Column(name = "cidade", nullable = true)
     private String cidade;
 
+    @NotNull(message = "Campo obrigatório.")
     @Column(name = "numero", nullable = true)
     private Integer numero;
 
     @Column(name = "complemento", nullable = true)
     private String complemento;
 
-    @Column(name = "administrador", nullable = true)
+    @Column(name = "administrador", nullable = true, columnDefinition="BOOLEAN DEFAULT true")
     private boolean administrador;
 
-    @Column(name = "motorista", nullable = true)
+    @Column(name = "motorista", nullable = true, columnDefinition="BOOLEAN DEFAULT false")
     private boolean motorista;
 
-    @Column(name = "ativo", nullable = true)
+    @Column(name = "ativo", nullable = true, columnDefinition="BOOLEAN DEFAULT false")
     private boolean ativo;
 
-    @Column(name = "senha", nullable = true, length = 20)
+    @NotNull
+    @Size(min = 2, message = "Campo obrigatório.")
+    @Column(name = "senha", nullable = true)
     private String senha;
 
-    @Column(name = "created", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;  
 
-    @Column(name = "modified",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified;
 
     public Integer getId() {
@@ -114,14 +125,6 @@ public class Cadastro implements Serializable{
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getFoto_perfil() {
-        return foto_perfil;
-    }
-
-    public void setFoto_perfil(String foto_perfil) {
-        this.foto_perfil = foto_perfil;
     }
 
     public String getEndereco() {
