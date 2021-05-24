@@ -72,7 +72,7 @@ public class Cadastro implements Serializable{
     @Size(min = 2, message = "Campo obrigatório.")
     @Column(name = "senha", nullable = true)
     private String senha;
-
+    
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created;  
 
