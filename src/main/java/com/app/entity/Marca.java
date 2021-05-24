@@ -29,24 +29,8 @@ public class Marca {
 	@Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime modified_at;
 
-	public LocalDateTime getCreated() {
-		return this.created_at;
-	}
-
-	public void setCreated(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
-
-	public LocalDateTime getModified() {
-		return this.modified_at;
-	}
-
-	public void setModified(LocalDateTime modified_at) {
-		this.modified_at = modified_at;
-	}
-
 	public Integer getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(Integer id) {
@@ -54,7 +38,7 @@ public class Marca {
 	}
 
 	public String getDescricao() {
-		return this.descricao;
+		return descricao;
 	}
 
 	public void setDescricao(String descricao) {
@@ -62,10 +46,26 @@ public class Marca {
 	}
 
 	public String getSite() {
-		return this.site;
+		return site;
 	}
 
 	public void setSite(String site) {
 		this.site = site;
 	}
+
+	public LocalDateTime getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = created_at;
+	}
+
+	public LocalDateTime getModified_at() {
+		return modified_at;
+	}
+
+	public void setModified_at(LocalDateTime modified_at) {
+		this.modified_at = modified_at;
+	}	
 }

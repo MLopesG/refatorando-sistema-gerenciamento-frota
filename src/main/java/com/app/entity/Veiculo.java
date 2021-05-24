@@ -173,6 +173,4 @@ public class Veiculo {
     public void setModified_at(LocalDateTime modified_at) {
         this.modified_at = modified_at;
     }
-
-    
 }

@@ -44,19 +44,19 @@ public class Cargo {
         this.descricao = descricao;
     }
 
-    public LocalDateTime getCreated() {
+    public LocalDateTime getCreated_at() {
         return created_at;
     }
 
-    public void setCreated(LocalDateTime created_at) {
+    public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
     }
 
-    public LocalDateTime getModified() {
+    public LocalDateTime getModified_at() {
         return modified_at;
     }
 
-    public void setModified(LocalDateTime modified_at) {
+    public void setModified_at(LocalDateTime modified_at) {
         this.modified_at = modified_at;
     }
 }

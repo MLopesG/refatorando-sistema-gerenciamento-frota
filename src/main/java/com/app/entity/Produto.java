@@ -47,20 +47,28 @@ public class Produto{
 		this.id = id;
 	}
 
-	public Integer getQuantidadeRestante() {
-		return this.quantidadeRestante;
-	}
-
-	public void setQuantidadeRestante(Integer quantidadeRestante) {
-		this.quantidadeRestante = quantidadeRestante;
-	}
-
 	public String getCategoria() {
 		return categoria;
 	}
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
+	}
+
+	public Integer getQuantidadeRestante() {
+		return quantidadeRestante;
+	}
+
+	public void setQuantidadeRestante(Integer quantidadeRestante) {
+		this.quantidadeRestante = quantidadeRestante;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public Float getValor() {
@@ -71,27 +79,19 @@ public class Produto{
 		this.valor = valor;
 	}
 
-	public LocalDateTime getCreated() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated(LocalDateTime created_at) {
+	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
 
-	public LocalDateTime getModified() {
+	public LocalDateTime getModified_at() {
 		return modified_at;
 	}
 
-	public void setModified(LocalDateTime modified_at) {
+	public void setModified_at(LocalDateTime modified_at) {
 		this.modified_at = modified_at;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+	}	
 }

@@ -49,103 +49,93 @@ public class RetiradaProduto {
     @Column(name = "modified_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified_at;
 
-	public LocalDateTime getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
-
-	public LocalDateTime getModified_at() {
-		return modified_at;
-	}
-
-	public void setModified_at(LocalDateTime modified_at) {
-		this.modified_at = modified_at;
-	}
-
-	public Produto getProduto() {
-		return this.produto;
-	}
-
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Produto getEstoque() {
+
+	public Produto getProduto() {
 		return produto;
 	}
 
-	public void setEstoque(Produto produto) {
+
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+
 
 	public Veiculo getVeiculo() {
 		return veiculo;
 	}
 
+
 	public void setVeiculo(Veiculo veiculo) {
 		this.veiculo = veiculo;
 	}
+
 
 	public Integer getQuantidade() {
 		return quantidade;
 	}
 
+
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
+
 
 	public Float getTotal() {
 		return total;
 	}
 
+
 	public void setTotal(Float total) {
 		this.total = total;
 	}
+
 
 	public String getObservacao() {
 		return observacao;
 	}
 
+
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
 
-	public LocalDateTime getCreated() {
-		return created_at;
-	}
-
-	public void setCreated(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
-
-	public LocalDateTime getModified() {
-		return modified_at;
-	}
-
-	public void setModified(LocalDateTime modified_at) {
-		this.modified_at = modified_at;
-	}
-
-	public String isStatus() {
-		return this.status;
-	}
 
 	public String getStatus() {
-		return this.status;
+		return status;
 	}
+
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+
+	public LocalDateTime getCreated_at() {
+		return created_at;
+	}
+
+
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = created_at;
+	}
+
+
+	public LocalDateTime getModified_at() {
+		return modified_at;
+	}
+
+
+	public void setModified_at(LocalDateTime modified_at) {
+		this.modified_at = modified_at;
 	}
 }

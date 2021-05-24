@@ -58,7 +58,7 @@ public class SaidaEntradaVeiculo{
     private LocalDateTime modified_at;
 
     public Integer getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Integer id) {
@@ -66,7 +66,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public Veiculo getVeiculo() {
-        return this.veiculo;
+        return veiculo;
     }
 
     public void setVeiculo(Veiculo veiculo) {
@@ -74,7 +74,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public Veiculo getVeiculoSub() {
-        return this.veiculoSub;
+        return veiculoSub;
     }
 
     public void setVeiculoSub(Veiculo veiculoSub) {
@@ -82,7 +82,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public LocalDateTime getSaida() {
-        return this.saida;
+        return saida;
     }
 
     public void setSaida(LocalDateTime saida) {
@@ -90,7 +90,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public LocalDateTime getEntrada() {
-        return this.entrada;
+        return entrada;
     }
 
     public void setEntrada(LocalDateTime entrada) {
@@ -98,7 +98,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public String getJustificativa() {
-        return this.justificativa;
+        return justificativa;
     }
 
     public void setJustificativa(String justificativa) {
@@ -106,7 +106,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public Float getKm_entrada() {
-        return this.km_entrada;
+        return km_entrada;
     }
 
     public void setKm_entrada(Float km_entrada) {
@@ -114,7 +114,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public Float getKm_saida() {
-        return this.km_saida;
+        return km_saida;
     }
 
     public void setKm_saida(Float km_saida) {
@@ -122,26 +122,26 @@ public class SaidaEntradaVeiculo{
     }
 
     public Float getKm_diferenca() {
-        return this.km_diferenca;
+        return km_diferenca;
     }
 
     public void setKm_diferenca(Float km_diferenca) {
         this.km_diferenca = km_diferenca;
     }
 
-    public LocalDateTime getCreated() {
-        return this.created_at;
+    public LocalDateTime getCreated_at() {
+        return created_at;
     }
 
-    public void setCreated(LocalDateTime created_at) {
+    public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
     }
 
-    public LocalDateTime getModified() {
-        return this.modified_at;
+    public LocalDateTime getModified_at() {
+        return modified_at;
     }
 
-    public void setModified(LocalDateTime modified_at) {
+    public void setModified_at(LocalDateTime modified_at) {
         this.modified_at = modified_at;
     }
 }
