@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name="retiradas_produto")
 public class RetiradaProduto {
@@ -38,6 +40,31 @@ public class RetiradaProduto {
 	@NotNull(message = "Campo obrigatório.")
     private String status;
 
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime created_at;             
+
+
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @Column(name = "modified_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime modified_at;
+
+	public LocalDateTime getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = created_at;
+	}
+
+	public LocalDateTime getModified_at() {
+		return modified_at;
+	}
+
+	public void setModified_at(LocalDateTime modified_at) {
+		this.modified_at = modified_at;
+	}
+
 	public Produto getProduto() {
 		return this.produto;
 	}
@@ -45,12 +72,6 @@ public class RetiradaProduto {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-
-    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime created;              
-                      
-    @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime modified;
 
 	public Integer getId() {
 		return id;
@@ -101,19 +122,19 @@ public class RetiradaProduto {
 	}
 
 	public LocalDateTime getCreated() {
-		return created;
+		return created_at;
 	}
 
-	public void setCreated(LocalDateTime created) {
-		this.created = created;
+	public void setCreated(LocalDateTime created_at) {
+		this.created_at = created_at;
 	}
 
 	public LocalDateTime getModified() {
-		return modified;
+		return modified_at;
 	}
 
-	public void setModified(LocalDateTime modified) {
-		this.modified = modified;
+	public void setModified(LocalDateTime modified_at) {
+		this.modified_at = modified_at;
 	}
 
 	public String isStatus() {

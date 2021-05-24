@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "timeline")
 public class Timeline {
@@ -21,11 +23,13 @@ public class Timeline {
     @Column(name = "descricao", nullable = true)
     private String descricao;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime created;             
+    private LocalDateTime created_at;             
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime modified;
+    private LocalDateTime modified_at;
 
     public Integer getId() {
         return id;
@@ -60,18 +64,18 @@ public class Timeline {
     }
 
     public LocalDateTime getCreated() {
-        return created;
+        return created_at;
     }
 
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
+    public void setCreated(LocalDateTime created_at) {
+        this.created_at = created_at;
     }
 
     public LocalDateTime getModified() {
-        return modified;
+        return modified_at;
     }
 
-    public void setModified(LocalDateTime modified) {
-        this.modified = modified;
+    public void setModified(LocalDateTime modified_at) {
+        this.modified_at = modified_at;
     }
 }

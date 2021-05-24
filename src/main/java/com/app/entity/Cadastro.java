@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "cadastro")
@@ -73,11 +75,13 @@ public class Cadastro implements Serializable{
     @Column(name = "senha", nullable = true)
     private String senha;
     
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime created;  
+    private LocalDateTime created_at;  
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime modified;
+    private LocalDateTime modified_at;
 
     public Integer getId() {
         return id;
@@ -143,6 +147,22 @@ public class Cadastro implements Serializable{
         this.cep = cep;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
     public Integer getNumero() {
         return numero;
     }
@@ -175,6 +195,14 @@ public class Cadastro implements Serializable{
         this.motorista = motorista;
     }
 
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
     public String getSenha() {
         return senha;
     }
@@ -183,31 +211,19 @@ public class Cadastro implements Serializable{
         this.senha = senha;
     }
 
-    public LocalDateTime getCreated() {
-        return created;
+    public LocalDateTime getCreated_at() {
+        return created_at;
     }
 
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
     }
 
-    public boolean isAtivo() {
-        return this.ativo;
+    public LocalDateTime getModified_at() {
+        return modified_at;
     }
 
-    public boolean getAtivo() {
-        return this.ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
-    }
-
-    public LocalDateTime getModified() {
-        return modified;
-    }
-
-    public void setModified(LocalDateTime modified) {
-        this.modified = modified;
+    public void setModified_at(LocalDateTime modified_at) {
+        this.modified_at = modified_at;
     }
 }

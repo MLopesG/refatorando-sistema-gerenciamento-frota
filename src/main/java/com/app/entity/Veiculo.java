@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "veiculo")
 public class Veiculo {
@@ -52,133 +54,125 @@ public class Veiculo {
     @Column(name = "manuntencao", nullable = true, columnDefinition="BOOLEAN DEFAULT false")
     private Boolean manuntencao;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime created;             
+    private LocalDateTime created_at;             
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "modified_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime modified;
+    private LocalDateTime modified_at;
 
     public Integer getId() {
-        return this.id;
+        return id;
     }
 
-    public void setId(final Integer id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getPlaca() {
-        return this.placa;
-    }
-
-    public void setPlaca(final String placa) {
-        this.placa = placa;
-    }
-
-    public Integer getAno() {
-        return this.ano;
-    }
-
-    public void setAno(final Integer ano) {
-        this.ano = ano;
-    }
-
-    public String getCategoria() {
-        return this.categoria;
-    }
-
-    public void setCategoria(final String categoria) {
-        this.categoria = categoria;
-    }
-
-    public String getCombustivel() {
-        return this.combustivel;
-    }
-
-    public void setCombustivel(final String combustivel) {
-        this.combustivel = combustivel;
-    }
-
-    public String getModelo() {
-        return this.modelo;
-    }
-
-    public void setModelo(final String modelo) {
-        this.modelo = modelo;
-    }
-
-    public String getDescricao() {
-        return this.descricao;
-    }
-
-    public void setDescricao(final String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getSetor() {
-        return this.setor;
-    }
-
-    public void setSetor(final String setor) {
-        this.setor = setor;
-    }
-
-    public Boolean isDisponivel() {
-        return this.disponivel;
-    }
-
-    public Boolean getDisponivel() {
-        return this.disponivel;
-    }
-
-    public void setDisponivel(final Boolean disponivel) {
-        this.disponivel = disponivel;
-    }
-
-    public Boolean isIndisponivel() {
-        return this.indisponivel;
-    }
-
-    public Boolean getIndisponivel() {
-        return this.indisponivel;
-    }
-
-    public void setIndisponivel(final Boolean indisponivel) {
-        this.indisponivel = indisponivel;
-    }
-
-    public Boolean isManuntencao() {
-        return this.manuntencao;
-    }
-
-    public Boolean getManuntencao() {
-        return this.manuntencao;
-    }
-
-    public void setManuntencao(final Boolean manuntencao) {
-        this.manuntencao = manuntencao;
-    }
-
-    public LocalDateTime getCreated() {
-        return this.created;
-    }
-
-    public void setCreated(final LocalDateTime created) {
-        this.created = created;
-    }
-
-    public LocalDateTime getModified() {
-        return this.modified;
-    }
-
-    public void setModified(final LocalDateTime modified) {
-        this.modified = modified;
     }
 
     public Marca getMarca() {
         return marca;
     }
 
-    public void setMarca(final Marca marca) {
+    public void setMarca(Marca marca) {
         this.marca = marca;
     }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public Integer getAno() {
+        return ano;
+    }
+
+    public void setAno(Integer ano) {
+        this.ano = ano;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getCombustivel() {
+        return combustivel;
+    }
+
+    public void setCombustivel(String combustivel) {
+        this.combustivel = combustivel;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getSetor() {
+        return setor;
+    }
+
+    public void setSetor(String setor) {
+        this.setor = setor;
+    }
+
+    public Boolean getDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(Boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public Boolean getIndisponivel() {
+        return indisponivel;
+    }
+
+    public void setIndisponivel(Boolean indisponivel) {
+        this.indisponivel = indisponivel;
+    }
+
+    public Boolean getManuntencao() {
+        return manuntencao;
+    }
+
+    public void setManuntencao(Boolean manuntencao) {
+        this.manuntencao = manuntencao;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getModified_at() {
+        return modified_at;
+    }
+
+    public void setModified_at(LocalDateTime modified_at) {
+        this.modified_at = modified_at;
+    }
+
+    
 }
