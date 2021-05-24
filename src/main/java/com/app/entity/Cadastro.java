@@ -20,7 +20,7 @@ public class Cadastro implements Serializable{
     @NotNull(message = "Campo obrigatório.")
     private Cargo cargo;
 
-    @NotNull
+    @NotNull(message = "Campo obrigatório.")
     @Size(min = 2, message = "Campo obrigatório.")
     @Column(name = "nome", nullable = true)
     private String nome;
@@ -28,12 +28,12 @@ public class Cadastro implements Serializable{
     @NotNull(message = "Campo obrigatório.")
     private Integer codigo;
 
-    @NotNull
+    @NotNull(message = "Campo obrigatório.")
     @Size(min = 2, message = "Campo obrigatório.")
     @Column(name = "cnh", nullable = true)
     private String cnh;
 
-    @NotNull
+    @NotNull(message = "Campo obrigatório.")
     @Size(min = 2, message = "Campo obrigatório.")
     private String cpf;
 
