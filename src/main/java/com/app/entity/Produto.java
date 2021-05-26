@@ -31,11 +31,11 @@ public class Produto{
     @Column(name = "valor", nullable = true)
     private Float valor;
 
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime created_at;   
 	
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified_at;
 

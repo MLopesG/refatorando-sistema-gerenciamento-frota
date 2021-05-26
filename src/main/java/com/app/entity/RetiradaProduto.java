@@ -40,12 +40,12 @@ public class RetiradaProduto {
 	@NotNull(message = "Campo obrigatório.")
     private String status;
 
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created_at;             
 
 
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(name = "modified_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified_at;
 
