@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import com.app.entity.Timeline;
 import com.app.repository.TimelineRepository;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -23,7 +24,7 @@ public class TimelineService {
     }
 
     public Map<String, Object> all(){
-        List<Timeline> registros = repository.findAll();
+        List<Timeline> registros = repository.findAll(Sort.by(Sort.Direction.DESC, "id"));
         Map<String, Object> result = new HashMap<>();
         
         try{
