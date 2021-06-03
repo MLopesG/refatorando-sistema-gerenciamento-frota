@@ -41,6 +41,7 @@ public class CadastroService {
     }
 
     public Map<String, Object> save(Cadastro cadastro){
+
         Map<String, Object> result =  new HashMap<>();
 
         try{

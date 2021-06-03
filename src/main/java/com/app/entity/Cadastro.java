@@ -17,9 +17,12 @@ public class Cadastro implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "cargo_id")
     @NotNull(message = "Campo obrigatório.")
+    @Column(name = "cargo_id", nullable = true)
+    private Integer cargoId;
+
+    @ManyToOne
+    @JoinColumn(name = "cargo_id", insertable = false, updatable = false)
     private Cargo cargo;
 
     @NotNull(message = "Campo obrigatório.")
@@ -83,6 +86,15 @@ public class Cadastro implements Serializable{
     @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified_at;
 
+
+    public Integer getCargoId() {
+        return this.cargoId;
+    }
+
+    public void setCargoId(Integer cargoId) {
+        this.cargoId = cargoId;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -93,10 +105,6 @@ public class Cadastro implements Serializable{
 
     public Cargo getCargo() {
         return cargo;
-    }
-
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
     }
 
     public String getNome() {
