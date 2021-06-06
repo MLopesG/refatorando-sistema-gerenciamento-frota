@@ -10,6 +10,7 @@ import com.app.entity.Timeline;
 import com.app.repository.CadastroRepository;
 import com.app.repository.TimelineRepository;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,7 +25,7 @@ public class CadastroService {
     }
 
     public Map<String, Object> all(){
-        List<Cadastro> registros = repository.findAll();
+        List<Cadastro> registros = repository.findAll(Sort.by(Sort.Direction.DESC, "id"));
         Map<String, Object> result = new HashMap<>();
         
         try{

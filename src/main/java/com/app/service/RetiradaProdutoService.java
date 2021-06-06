@@ -12,6 +12,7 @@ import com.app.repository.RetiradaProdutoRepository;
 import com.app.repository.ProdutoRepository;
 import com.app.repository.TimelineRepository;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +30,7 @@ public class RetiradaProdutoService {
     }
 
     public Map<String, Object> all(){
-        List<RetiradaProduto> registros = repository.findAll();
+        List<RetiradaProduto> registros = repository.findAll(Sort.by(Sort.Direction.DESC, "id"));
         Map<String, Object> result = new HashMap<>();
         
         try{
