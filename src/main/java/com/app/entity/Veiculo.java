@@ -54,6 +54,9 @@ public class Veiculo {
     @Column(name = "manuntencao", nullable = true, columnDefinition="BOOLEAN DEFAULT false")
     private Boolean manuntencao;
 
+    @Column(name = "is_substituto", nullable = true, columnDefinition="BOOLEAN DEFAULT false")
+    private Boolean is_substituto;
+
     @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created_at;             
@@ -169,6 +172,18 @@ public class Veiculo {
 
     public void setManuntencao(Boolean manuntencao) {
         this.manuntencao = manuntencao;
+    }
+
+    public Boolean isIs_substituto() {
+        return this.is_substituto;
+    }
+
+    public Boolean getIs_substituto() {
+        return this.is_substituto;
+    }
+
+    public void setIs_substituto(Boolean is_substituto) {
+        this.is_substituto = is_substituto;
     }
 
     public LocalDateTime getCreated_at() {
