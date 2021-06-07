@@ -75,8 +75,8 @@ public class Cadastro implements Serializable{
 
     @NotNull
     @Size(min = 2, message = "Campo obrigatório.")
-    @Column(name = "senha", nullable = true)
-    private String senha;
+    @Column(name = "password", nullable = true)
+    private String password;
     
     @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -211,12 +211,12 @@ public class Cadastro implements Serializable{
         this.ativo = ativo;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LocalDateTime getCreated_at() {
