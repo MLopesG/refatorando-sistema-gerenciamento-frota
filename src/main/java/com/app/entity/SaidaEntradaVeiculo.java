@@ -1,6 +1,5 @@
 package com.app.entity;
 
-
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
@@ -9,22 +8,20 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name="saida_entrada_veiculo")
-public class SaidaEntradaVeiculo{
+@Table(name = "saida_entrada_veiculo")
+public class SaidaEntradaVeiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "veiculo_id")
-    @NotNull(message = "Campo obrigatório.")
+    @JoinColumn(name = "veiculo_id", insertable = false, updatable = false)
     private Veiculo veiculo;
 
-    @ManyToOne
-    @JoinColumn(name = "veiculo_substituto_id")
+    @Column(name = "veiculo_id", nullable = true)
     @NotNull(message = "Campo obrigatório.")
-    private Veiculo veiculoSub;
-    
+    private Integer veiculoId;
+
     @Column(name = "saida", nullable = true)
     @NotNull(message = "Campo obrigatório.")
     private LocalDateTime saida;
@@ -47,18 +44,19 @@ public class SaidaEntradaVeiculo{
 
     @Column(name = "km_diferenca", nullable = true)
     @NotNull(message = "Campo obrigatório.")
-    private Float km_diferenca;    
+    private Float km_diferenca;
 
-    @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
-    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime created_at;             
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime created_at;
 
-    @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
-    @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @Column(name = "modified_at", insertable = false, updatable = false, nullable = true, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified_at;
 
+
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -66,23 +64,23 @@ public class SaidaEntradaVeiculo{
     }
 
     public Veiculo getVeiculo() {
-        return veiculo;
+        return this.veiculo;
     }
 
     public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
 
-    public Veiculo getVeiculoSub() {
-        return veiculoSub;
+    public Integer getVeiculoId() {
+        return this.veiculoId;
     }
 
-    public void setVeiculoSub(Veiculo veiculoSub) {
-        this.veiculoSub = veiculoSub;
+    public void setVeiculoId(Integer veiculoId) {
+        this.veiculoId = veiculoId;
     }
 
     public LocalDateTime getSaida() {
-        return saida;
+        return this.saida;
     }
 
     public void setSaida(LocalDateTime saida) {
@@ -90,7 +88,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public LocalDateTime getEntrada() {
-        return entrada;
+        return this.entrada;
     }
 
     public void setEntrada(LocalDateTime entrada) {
@@ -98,7 +96,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public String getJustificativa() {
-        return justificativa;
+        return this.justificativa;
     }
 
     public void setJustificativa(String justificativa) {
@@ -106,7 +104,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public Float getKm_entrada() {
-        return km_entrada;
+        return this.km_entrada;
     }
 
     public void setKm_entrada(Float km_entrada) {
@@ -114,7 +112,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public Float getKm_saida() {
-        return km_saida;
+        return this.km_saida;
     }
 
     public void setKm_saida(Float km_saida) {
@@ -122,7 +120,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public Float getKm_diferenca() {
-        return km_diferenca;
+        return this.km_diferenca;
     }
 
     public void setKm_diferenca(Float km_diferenca) {
@@ -130,7 +128,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public LocalDateTime getCreated_at() {
-        return created_at;
+        return this.created_at;
     }
 
     public void setCreated_at(LocalDateTime created_at) {
@@ -138,7 +136,7 @@ public class SaidaEntradaVeiculo{
     }
 
     public LocalDateTime getModified_at() {
-        return modified_at;
+        return this.modified_at;
     }
 
     public void setModified_at(LocalDateTime modified_at) {

@@ -14,12 +14,20 @@ public class Veiculo {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "marca_id")
+    @JoinColumn(name = "marca_id",  insertable = false, updatable = false)
     private Marca marca;
+
+    @Column(name = "marca_id", nullable = true, unique = true)
+    @NotNull(message = "Campo obrigatório.")
+    private Integer marcaId;
 
     @Column(name = "placa", nullable = true, unique = true)
     @NotNull(message = "Campo obrigatório.")
     private String placa;
+
+    @Column(name = "qtd_lugares", nullable = true, unique = true)
+    @NotNull(message = "Campo obrigatório.")
+    private String qtdLugares;
 
     @Column(name = "ano", nullable = true)
     @NotNull(message = "Campo obrigatório.")
@@ -27,11 +35,7 @@ public class Veiculo {
 
     @Column(name = "categoria", nullable = true)
     @NotNull(message = "Campo obrigatório.")
-    private String categoria;
-
-    @Column(name = "combustivel", nullable = true)
-    @NotNull(message = "Campo obrigatório.")
-    private String combustivel;
+    private CategoriaVeiculo categoria;
 
     @Column(name = "modelo", nullable = true)
     @NotNull(message = "Campo obrigatório.")
@@ -40,10 +44,6 @@ public class Veiculo {
     @Column(name = "descricao", nullable = true)
     @NotNull(message = "Campo obrigatório.")
     private String descricao;
-
-    @Column(name = "setor", nullable = true)
-    @NotNull(message = "Campo obrigatório.")
-    private String setor;
 
     @Column(name = "disponivel", nullable = true, columnDefinition="BOOLEAN DEFAULT false")
     private Boolean disponivel;
@@ -62,8 +62,9 @@ public class Veiculo {
     @Column(name = "modified_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified_at;
 
+
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -71,47 +72,55 @@ public class Veiculo {
     }
 
     public Marca getMarca() {
-        return marca;
+        return this.marca;
     }
 
     public void setMarca(Marca marca) {
         this.marca = marca;
     }
 
+    public Integer getMarcaId() {
+        return this.marcaId;
+    }
+
+    public void setMarcaId(Integer marcaId) {
+        this.marcaId = marcaId;
+    }
+
     public String getPlaca() {
-        return placa;
+        return this.placa;
     }
 
     public void setPlaca(String placa) {
         this.placa = placa;
     }
 
+    public String getQtdLugares() {
+        return this.qtdLugares;
+    }
+
+    public void setQtdLugares(String qtdLugares) {
+        this.qtdLugares = qtdLugares;
+    }
+
     public Integer getAno() {
-        return ano;
+        return this.ano;
     }
 
     public void setAno(Integer ano) {
         this.ano = ano;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public CategoriaVeiculo getCategoria() {
+        return this.categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(CategoriaVeiculo categoria) {
         this.categoria = categoria;
     }
 
-    public String getCombustivel() {
-        return combustivel;
-    }
-
-    public void setCombustivel(String combustivel) {
-        this.combustivel = combustivel;
-    }
-
     public String getModelo() {
-        return modelo;
+        return this.modelo;
     }
 
     public void setModelo(String modelo) {
@@ -119,39 +128,43 @@ public class Veiculo {
     }
 
     public String getDescricao() {
-        return descricao;
+        return this.descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    public String getSetor() {
-        return setor;
-    }
-
-    public void setSetor(String setor) {
-        this.setor = setor;
+    public Boolean isDisponivel() {
+        return this.disponivel;
     }
 
     public Boolean getDisponivel() {
-        return disponivel;
+        return this.disponivel;
     }
 
     public void setDisponivel(Boolean disponivel) {
         this.disponivel = disponivel;
     }
 
+    public Boolean isIndisponivel() {
+        return this.indisponivel;
+    }
+
     public Boolean getIndisponivel() {
-        return indisponivel;
+        return this.indisponivel;
     }
 
     public void setIndisponivel(Boolean indisponivel) {
         this.indisponivel = indisponivel;
     }
 
+    public Boolean isManuntencao() {
+        return this.manuntencao;
+    }
+
     public Boolean getManuntencao() {
-        return manuntencao;
+        return this.manuntencao;
     }
 
     public void setManuntencao(Boolean manuntencao) {
@@ -159,7 +172,7 @@ public class Veiculo {
     }
 
     public LocalDateTime getCreated_at() {
-        return created_at;
+        return this.created_at;
     }
 
     public void setCreated_at(LocalDateTime created_at) {
@@ -167,7 +180,7 @@ public class Veiculo {
     }
 
     public LocalDateTime getModified_at() {
-        return modified_at;
+        return this.modified_at;
     }
 
     public void setModified_at(LocalDateTime modified_at) {

@@ -17,32 +17,46 @@ public class Manuntencao {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "veiculo_id")
-    @NotNull(message = "Campo obrigatório.")
+    @JoinColumn(name = "veiculo_id", insertable = false, updatable = false)
     private Veiculo veiculo;
 
     @ManyToOne
-    @JoinColumn(name = "cadastro_id")
-    @NotNull(message = "Campo obrigatório.")
+    @JoinColumn(name = "cadastro_id", insertable = false, updatable = false)
     private Cadastro cadastro;
 
-    @ManyToOne
-    @JoinColumn(name = "tipo_manuntencao_id")
+    @Column(name = "cadastro_id", nullable = true)
     @NotNull(message = "Campo obrigatório.")
+    private Integer cadastroId;
+
+    @Column(name = "veiculo_id", nullable = true)
+    @NotNull(message = "Campo obrigatório.")
+    private Integer veiculoId;
+
+    @Column(name = "veiculo_substituto_id", nullable = true)
+    private Integer veiculoSubstitutoId;
+
+    @ManyToOne
+    @JoinColumn(name = "tipo_manuntencao_id", insertable = false, updatable = false)
     private TipoManuntecao tipoManuntencao;
 
     @NotNull
-    @Size(min = 2, message = "Campo obrigatório.")
-    @Column(name = "tipo", nullable = true)
-    private String tipo;
+    @NotNull(message = "Campo obrigatório.")
+    @Column(name = "tipo_manuntencao_id", nullable = true)
+    private Integer tipoManuntencaoId;
 
     @NotNull
     @Size(min = 2, message = "Campo obrigatório.")
     @Column(name = "proxima_manuntencao", nullable = true)
     private String proximaManuntencao;
 
-    @Column(name = "observacao", nullable = true)
-    private String observacao;
+    @Column(name = "descricao", nullable = true)
+    private String descricao;
+
+    @Column(name = "observacao_geral", nullable = true)
+    private String observacao_geral;
+
+    @Column(name = "observacao_veiculo_substituto_nao_usado", nullable = true)
+    private String observacao_veiculo_substituto_nao_usado;
     
     @NotNull(message = "Campo obrigatório.")
     @Column(name = "quilometragem", nullable = true)
@@ -56,8 +70,9 @@ public class Manuntencao {
     @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified_at;
 
+
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -65,7 +80,7 @@ public class Manuntencao {
     }
 
     public Veiculo getVeiculo() {
-        return veiculo;
+        return this.veiculo;
     }
 
     public void setVeiculo(Veiculo veiculo) {
@@ -73,47 +88,87 @@ public class Manuntencao {
     }
 
     public Cadastro getCadastro() {
-        return cadastro;
+        return this.cadastro;
     }
 
     public void setCadastro(Cadastro cadastro) {
         this.cadastro = cadastro;
     }
 
+    public Integer getCadastroId() {
+        return this.cadastroId;
+    }
+
+    public void setCadastroId(Integer cadastroId) {
+        this.cadastroId = cadastroId;
+    }
+
+    public Integer getVeiculoId() {
+        return this.veiculoId;
+    }
+
+    public void setVeiculoId(Integer veiculoId) {
+        this.veiculoId = veiculoId;
+    }
+
+    public Integer getVeiculoSubstitutoId() {
+        return this.veiculoSubstitutoId;
+    }
+
+    public void setVeiculoSubstitutoId(Integer veiculoSubstitutoId) {
+        this.veiculoSubstitutoId = veiculoSubstitutoId;
+    }
+
     public TipoManuntecao getTipoManuntencao() {
-        return tipoManuntencao;
+        return this.tipoManuntencao;
     }
 
     public void setTipoManuntencao(TipoManuntecao tipoManuntencao) {
         this.tipoManuntencao = tipoManuntencao;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Integer getTipoManuntencaoId() {
+        return this.tipoManuntencaoId;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoManuntencaoId(Integer tipoManuntencaoId) {
+        this.tipoManuntencaoId = tipoManuntencaoId;
     }
 
     public String getProximaManuntencao() {
-        return proximaManuntencao;
+        return this.proximaManuntencao;
     }
 
     public void setProximaManuntencao(String proximaManuntencao) {
         this.proximaManuntencao = proximaManuntencao;
     }
 
-    public String getObservacao() {
-        return observacao;
+    public String getDescricao() {
+        return this.descricao;
     }
 
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getObservacao_geral() {
+        return this.observacao_geral;
+    }
+
+    public void setObservacao_geral(String observacao_geral) {
+        this.observacao_geral = observacao_geral;
+    }
+
+    public String getObservacao_veiculo_substituto_nao_usado() {
+        return this.observacao_veiculo_substituto_nao_usado;
+    }
+
+    public void setObservacao_veiculo_substituto_nao_usado(String observacao_veiculo_substituto_nao_usado) {
+        this.observacao_veiculo_substituto_nao_usado = observacao_veiculo_substituto_nao_usado;
     }
 
     public Float getQuilometragem() {
-        return quilometragem;
+        return this.quilometragem;
     }
 
     public void setQuilometragem(Float quilometragem) {
@@ -121,7 +176,7 @@ public class Manuntencao {
     }
 
     public LocalDateTime getCreated_at() {
-        return created_at;
+        return this.created_at;
     }
 
     public void setCreated_at(LocalDateTime created_at) {
@@ -129,10 +184,10 @@ public class Manuntencao {
     }
 
     public LocalDateTime getModified_at() {
-        return modified_at;
+        return this.modified_at;
     }
 
     public void setModified_at(LocalDateTime modified_at) {
         this.modified_at = modified_at;
-    }    
+    }
 }

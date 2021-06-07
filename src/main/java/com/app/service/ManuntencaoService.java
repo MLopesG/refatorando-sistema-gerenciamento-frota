@@ -47,7 +47,7 @@ public class ManuntencaoService {
         try{
             Timeline timeline = new Timeline();
             
-            timeline.setDescricao("Manuntenção: " + manuntencao.getObservacao());
+            timeline.setDescricao("Manuntenção: " + manuntencao.getObservacao_geral());
 
             if(manuntencao.getId() != null){
                 timeline.setTipo("Alteração");
@@ -89,7 +89,7 @@ public class ManuntencaoService {
             }
 
             Timeline timeline = new Timeline();    
-            timeline.setDescricao("Manuntenção: " + manuntencao.get().getObservacao());
+            timeline.setDescricao("Manuntenção: " + manuntencao.get().getObservacao_geral());
             timeline.setTipo("Deletar");
             repositoryTimeline.save(timeline);
 
