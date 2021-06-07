@@ -46,6 +46,10 @@ public class SaidaEntradaVeiculo {
     @NotNull(message = "Campo obrigatório.")
     private Float km_diferenca;
 
+    @Column(name = "status", nullable = true)
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created_at;
@@ -54,6 +58,24 @@ public class SaidaEntradaVeiculo {
     @Column(name = "modified_at", insertable = false, updatable = false, nullable = true, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified_at;
 
+    public SaidaEntradaVeiculo() {
+    }
+
+    public SaidaEntradaVeiculo(Integer id, Veiculo veiculo, Integer veiculoId, LocalDateTime saida, LocalDateTime entrada, String justificativa, Float km_entrada, Float km_saida, Float km_diferenca, Status status, LocalDateTime created_at, LocalDateTime modified_at) {
+        this.id = id;
+        this.veiculo = veiculo;
+        this.veiculoId = veiculoId;
+        this.saida = saida;
+        this.entrada = entrada;
+        this.justificativa = justificativa;
+        this.km_entrada = km_entrada;
+        this.km_saida = km_saida;
+        this.km_diferenca = km_diferenca;
+        this.status = status;
+        this.created_at = created_at;
+        this.modified_at = modified_at;
+    }
+    
 
     public Integer getId() {
         return this.id;
@@ -127,6 +149,14 @@ public class SaidaEntradaVeiculo {
         this.km_diferenca = km_diferenca;
     }
 
+    public Status getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public LocalDateTime getCreated_at() {
         return this.created_at;
     }
@@ -141,5 +171,5 @@ public class SaidaEntradaVeiculo {
 
     public void setModified_at(LocalDateTime modified_at) {
         this.modified_at = modified_at;
-    }
+    }    
 }

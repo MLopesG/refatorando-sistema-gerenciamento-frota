@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "manuntencoes")
+@Table(name = "manuntencao")
 public class Manuntencao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,6 +62,10 @@ public class Manuntencao {
     @Column(name = "quilometragem", nullable = true)
     private Float quilometragem;
 
+    @Column(name = "status", nullable = true)
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
     @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(name = "created_at", insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime created_at;                  
@@ -69,6 +73,30 @@ public class Manuntencao {
     @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(name = "modified_at",  insertable = false, updatable = false, nullable = true, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime modified_at;
+
+
+    public Manuntencao() {
+    }
+
+
+    public Manuntencao(Integer id, Veiculo veiculo, Cadastro cadastro, Integer cadastroId, Integer veiculoId, Integer veiculoSubstitutoId, TipoManuntecao tipoManuntencao, Integer tipoManuntencaoId, String proximaManuntencao, String descricao, String observacao_geral, String observacao_veiculo_substituto_nao_usado, Float quilometragem, Status status, LocalDateTime created_at, LocalDateTime modified_at) {
+        this.id = id;
+        this.veiculo = veiculo;
+        this.cadastro = cadastro;
+        this.cadastroId = cadastroId;
+        this.veiculoId = veiculoId;
+        this.veiculoSubstitutoId = veiculoSubstitutoId;
+        this.tipoManuntencao = tipoManuntencao;
+        this.tipoManuntencaoId = tipoManuntencaoId;
+        this.proximaManuntencao = proximaManuntencao;
+        this.descricao = descricao;
+        this.observacao_geral = observacao_geral;
+        this.observacao_veiculo_substituto_nao_usado = observacao_veiculo_substituto_nao_usado;
+        this.quilometragem = quilometragem;
+        this.status = status;
+        this.created_at = created_at;
+        this.modified_at = modified_at;
+    }
 
 
     public Integer getId() {
@@ -173,6 +201,14 @@ public class Manuntencao {
 
     public void setQuilometragem(Float quilometragem) {
         this.quilometragem = quilometragem;
+    }
+
+    public Status getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public LocalDateTime getCreated_at() {
