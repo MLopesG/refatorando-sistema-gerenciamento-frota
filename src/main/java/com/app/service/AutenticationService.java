@@ -17,17 +17,15 @@ public class AutenticationService implements UserDetailsService {
     private CadastroRepository repository;
 
     @Override
-    public UserDetails loadUserByUsername(String cpf) throws UsernameNotFoundException{
+    public UserDetails loadUserByUsername(String cpf) throws UsernameNotFoundException {
 
-        Cadastro cadastro = repository
-                            .findByCpf(cpf)
-                            .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
+        Cadastro cadastro = repository.findByCpf(cpf)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
 
-        return User
-                .builder()
-                .username(cadastro.getNome())
-                .password(cadastro.getPassword())
-                .roles("USER")
-                .build();
+        if (cadastro == null) {
+            throw new UsernameNotFoundException("Usuário não encontrado!");
+        }
+
+        return User.builder().username(cadastro.getNome()).password(cadastro.getPassword()).roles("USER").build();
     }
 }
